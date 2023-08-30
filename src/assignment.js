@@ -33,23 +33,38 @@ function sumOfNumbersTo(destination) {
  * @returns the object containing count, sum, arrayOfEvenNumbers from 1 to destination
  */
 function countEvenNumbersWithin(destination) {
-    // Write your code here
-    // get the number from 1 to destination
     let sum = 0;
     let count = 0;
     let arrayOfEvenNumbers = [];
 
+
+    for (let i = 1; i <= destination; i++) {
+        // Check if the current number is even
+        if (i % 2 === 0) {
+            // Adding even number to the sum
+            sum += i;
+            // Increment the count of even numbers
+            count++;
+            // Push the even number to the array
+            arrayOfEvenNumbers.push(i);
+        }
+    }
+
+   
     return {
-        // property value shorthand
-        // when the property name and the value name are the same
-        // you can just write the property name in your object
         count,
         sum,
         arrayOfEvenNumbers
     };
 }
 
-// assignment.countEvenNumbersWithin = countEvenNumbersWithin;
+let destination = 10;
+let result = countEvenNumbersWithin(destination);
+console.log(result.count); 
+console.log(result.sum);
+console.log(result.arrayOfEvenNumbers) 
+
+ assignment.countEvenNumbersWithin = countEvenNumbersWithin;
 
 /**
  * Challenge - 3
@@ -66,14 +81,22 @@ function countEvenNumbersWithin(destination) {
  * @param {Array} arrayOfNumbers the array containing temperatures in Celsius to be converted
  * @returns Array the converted temperatures in Fahrenheit
  */
-function celsiusToFahrenheit(arrayOfNumbers) {
-    let result = [];
+     function celsiusToFahrenheit(arrayOfNumbers) {
+     let result = [];
 
-    return result;
+     for (let celsius of arrayOfNumbers) {
+        let fahrenheit = Math.trunc(celsius * 9 / 5 + 32);
+        result.push(fahrenheit);
+     }
+
+     return result;
 }
 
-// assignment.celsiusToFahrenheit = celsiusToFahrenheit;
+     let celsiusTemperatures = [23, 30.5, 15.8, 10.3, -5];
+     let fahrenheitTemperatures = celsiusToFahrenheit(celsiusTemperatures);
+     console.log(fahrenheitTemperatures);
 
+     assignment.celsiusToFahrenheit = celsiusToFahrenheit;
 // ========================
 // DO NOT EDIT THIS BLOCK
 module.exports = assignment;
